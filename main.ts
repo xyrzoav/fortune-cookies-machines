@@ -10,7 +10,8 @@ import { join } from 'node:path';
 const FORTUNE =
   "You will meet a tall, dark stranger: a 500 error, at 3 a.m., on a Friday deploy.";
 
-// The gate requires 1 to 199 characters; fail loudly instead of writing an invalid entry.
+// The gate allows 1 to 199 characters; this fortune is 80. Fail loudly instead
+// of writing an invalid entry, so a bad edit can never slip through silently.
 if (FORTUNE.length < 1 || FORTUNE.length > 199) {
   throw new Error(`fortune is ${FORTUNE.length} chars, must be 1-199`);
 }
